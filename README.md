@@ -6,10 +6,7 @@ Walverine extracts structured case law citations from unstructured strings of te
 
 ## Usage
 
-TBD
-
 ```javascript
-// something like this:
 var walverine = require('walverine');
 var input = "I am a cat. Smith v. Hardibble, 111 Cal.2d 222, 555, 558, 333 Cal.3d 444 (1988)";
 var cites = walverine.get_citations(input);
@@ -55,8 +52,6 @@ console.log(cites);
 ```
 
 ## Installation
-
-Not yet published to npm, but hopefully this:
 
 `npm install walverine`
 

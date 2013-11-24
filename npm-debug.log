@@ -4,19 +4,133 @@
 3 info using node@v0.10.9
 4 verbose publish [ '.' ]
 5 verbose read json /Users/adelevie/programming/walverine/package.json
-6 error Failed to parse json
-6 error Unexpected token }
-7 error File: /Users/adelevie/programming/walverine/package.json
-8 error Failed to parse package.json data.
-8 error package.json must be actual JSON, not just JavaScript.
-8 error
-8 error This is not a bug in npm.
-8 error Tell the package author to fix their package.json file. JSON.parse
-9 error System Darwin 12.0.0
-10 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "."
-11 error cwd /Users/adelevie/programming/walverine
-12 error node -v v0.10.9
-13 error npm -v 1.2.24
-14 error file /Users/adelevie/programming/walverine/package.json
-15 error code EJSONPARSE
-16 verbose exit [ 1, true ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/adelevie/.npm/3a52ce78-.lock
+11 verbose read json package.json
+12 verbose tar pack [ '/var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+14 verbose folder .
+15 info prepublish walverine@0.0.1
+16 silly lockFile 3a52ce78- .
+17 verbose lock . /Users/adelevie/.npm/3a52ce78-.lock
+18 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+19 verbose lock /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz /Users/adelevie/.npm/c48a04aa-22456-0-4628543467260897-tmp-tgz.lock
+20 silly lockFile 3a52ce78- .
+21 silly lockFile 3a52ce78- .
+22 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+23 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+24 verbose tar unpack /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+25 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+26 verbose lock /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package /Users/adelevie/.npm/c858a7e3-22456-0-4628543467260897-package.lock
+27 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+28 verbose lock /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz /Users/adelevie/.npm/c48a04aa-22456-0-4628543467260897-tmp-tgz.lock
+29 silly gunzTarPerm modes [ '755', '644' ]
+30 silly gunzTarPerm extractEntry package.json
+31 silly gunzTarPerm extractEntry .npmignore
+32 silly gunzTarPerm extractEntry README.md
+33 silly gunzTarPerm extractEntry reporters.js
+34 silly gunzTarPerm extractEntry walverine.js
+35 silly gunzTarPerm extractEntry LICENSE.txt
+36 verbose read json /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package/package.json
+37 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+38 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+39 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+40 silly lockFile c48a04aa-22456-0-4628543467260897-tmp-tgz /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/tmp.tgz
+41 verbose from cache /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package/package.json
+42 verbose tar pack [ '/Users/adelevie/.npm/walverine/0.0.1/package.tgz',
+42 verbose tar pack   '/var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package' ]
+43 verbose tarball /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+44 verbose folder /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+45 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+46 verbose lock /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package /Users/adelevie/.npm/c858a7e3-22456-0-4628543467260897-package.lock
+47 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+48 verbose lock /Users/adelevie/.npm/walverine/0.0.1/package.tgz /Users/adelevie/.npm/fa92986e--npm-walverine-0-0-1-package-tgz.lock
+49 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+50 silly lockFile c858a7e3-22456-0-4628543467260897-package /var/folders/1m/fb9g9_mx1mjbs1s_dl6h8xc80000gn/T/npm-9267/1385268822456-0.4628543467260897/package
+51 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+52 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+53 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+54 verbose lock /Users/adelevie/.npm/walverine/0.0.1/package /Users/adelevie/.npm/e6df1f27-evie-npm-walverine-0-0-1-package.lock
+55 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+56 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+57 verbose tar unpack /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+58 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+59 verbose lock /Users/adelevie/.npm/walverine/0.0.1/package /Users/adelevie/.npm/e6df1f27-evie-npm-walverine-0-0-1-package.lock
+60 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+61 verbose lock /Users/adelevie/.npm/walverine/0.0.1/package.tgz /Users/adelevie/.npm/fa92986e--npm-walverine-0-0-1-package-tgz.lock
+62 silly gunzTarPerm modes [ '755', '644' ]
+63 silly gunzTarPerm extractEntry package.json
+64 silly gunzTarPerm extractEntry .npmignore
+65 silly gunzTarPerm extractEntry README.md
+66 silly gunzTarPerm extractEntry reporters.js
+67 silly gunzTarPerm extractEntry walverine.js
+68 silly gunzTarPerm extractEntry LICENSE.txt
+69 verbose read json /Users/adelevie/.npm/walverine/0.0.1/package/package.json
+70 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+71 silly lockFile e6df1f27-evie-npm-walverine-0-0-1-package /Users/adelevie/.npm/walverine/0.0.1/package
+72 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+73 silly lockFile fa92986e--npm-walverine-0-0-1-package-tgz /Users/adelevie/.npm/walverine/0.0.1/package.tgz
+74 verbose from cache /Users/adelevie/.npm/walverine/0.0.1/package/package.json
+75 verbose chmod /Users/adelevie/.npm/walverine/0.0.1/package.tgz 644
+76 verbose chown /Users/adelevie/.npm/walverine/0.0.1/package.tgz [ 501, 20 ]
+77 silly lockFile 3a52ce78- .
+78 silly publish { name: 'walverine',
+78 silly publish   version: '0.0.1',
+78 silly publish   description: 'Extract case law citations from plain text',
+78 silly publish   main: 'walverine.js',
+78 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+78 silly publish   repository:
+78 silly publish    { type: 'git',
+78 silly publish      url: 'https://github.com/adelevie/walverine.git' },
+78 silly publish   keywords: [ 'legal-citations' ],
+78 silly publish   author: { name: 'Mike Lissner/Frank Bennett/Alan deLevie' },
+78 silly publish   license: 'GPL',
+78 silly publish   bugs: { url: 'https://github.com/adelevie/walverine/issues' },
+78 silly publish   dependencies: { underscore: '*' },
+78 silly publish   readme: '# Walverine\n\n*Mighter than a ferret, contains "Law Rev." spelled backwards.*\n\nWalverine extracts structured case law citations from unstructured strings of text.\n\n## Usage\n\nTBD\n\n```javascript\n// something like this:\nvar walverine = require(\'walverine\');\nvar input = "I am a cat. Smith v. Hardibble, 111 Cal.2d 222, 555, 558, 333 Cal.3d 444 (1988)";\nvar cites = walverine.get_citations(input);\nconsole.log(cites);\n// =>\n/*\n[ { volume: 111,\n    reporter: \'Cal. 2d\',\n    page: 222,\n    lookup_index: 0,\n    canonical_reporter: \'Cal.\',\n    extra: \'555, 558, 333 Cal.3d 444\',\n    defendant: \'Hardibble\',\n    plaintiff: \'Smith\',\n    court: null,\n    year: 1988,\n    mlz_jurisdiction: \'us;ca\',\n    match_url: null,\n    end_idx: 11,\n    cert_order: null,\n    disposition: null,\n    seqID: 0,\n    relations: [ 0, 1 ] },\n  { volume: 333,\n    reporter: \'Cal. 3d\',\n    page: 444,\n    lookup_index: 0,\n    canonical_reporter: \'Cal.\',\n    extra: null,\n    defendant: \'Hardibble\',\n    plaintiff: \'Smith\',\n    court: null,\n    year: 1988,\n    mlz_jurisdiction: \'us;ca\',\n    match_url: null,\n    end_idx: 14,\n    cert_order: null,\n    disposition: null,\n    CARRY_FORWARD: true,\n    seqID: 1,\n    relations: [ 0, 1 ] } ]\n*/\n```\n\n## Installation\n\nNot yet published to npm, but hopefully this:\n\n`npm install walverine`\n\n## Heritage\n\nCourtListener (Python) -> Free Law Ferret (Javascript/Firefox Extension) -> Walverine (Javascript/Node)\n\n### License\n\nSee LICENSE.txt',
+78 silly publish   readmeFilename: 'README.md',
+78 silly publish   _id: 'walverine@0.0.1',
+78 silly publish   dist: { shasum: '9deb9429bd670bfacb72082fef8f57b91ce5a349' },
+78 silly publish   _from: '.' }
+79 verbose url raw walverine
+80 verbose url resolving [ 'https://registry.npmjs.org/', './walverine' ]
+81 verbose url resolved https://registry.npmjs.org/walverine
+82 info trying registry request attempt 1 at 23:54:42
+83 http PUT https://registry.npmjs.org/walverine
+84 http 409 https://registry.npmjs.org/walverine
+85 verbose url raw walverine
+86 verbose url resolving [ 'https://registry.npmjs.org/', './walverine' ]
+87 verbose url resolved https://registry.npmjs.org/walverine
+88 info trying registry request attempt 1 at 23:54:42
+89 http GET https://registry.npmjs.org/walverine
+90 http 200 https://registry.npmjs.org/walverine
+91 error publish fail Cannot publish over existing version.
+91 error publish fail Update the 'version' field in package.json and try again.
+91 error publish fail
+91 error publish fail If the previous version was published in error, see:
+91 error publish fail     npm help unpublish
+91 error publish fail
+91 error publish fail To automatically increment version numbers, see:
+91 error publish fail     npm help version
+92 error System Darwin 12.0.0
+93 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "."
+94 error cwd /Users/adelevie/programming/walverine
+95 error node -v v0.10.9
+96 error npm -v 1.2.24
+97 error code EPUBLISHCONFLICT
+98 verbose exit [ 1, true ]
