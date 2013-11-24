@@ -60,6 +60,10 @@ Not yet published to npm, but hopefully this:
 
 `npm install walverine`
 
+## Heritage
+
+CourtListener (Python) -> Free Law Ferret (Javascript/Firefox Extension) -> Walverine (Javascript/Node)
+
 ### License
 
 See LICENSE.txt
