@@ -1,6 +1,6 @@
 # Walverine
 
-*Mighter than a ferret, contains "Law Rev." spelled backwards.*
+*Mightier than a ferret, contains "Law Rev." spelled backwards.*
 
 Walverine extracts structured case law citations from unstructured strings of text.
 
