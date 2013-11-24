@@ -19,6 +19,6 @@
     "url": "https://github.com/adelevie/walverine/issues"
   },
   "dependencies": {
-      "underscore": "*",
+    "underscore": "*"
   }
 }
