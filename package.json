@@ -1,0 +1,21 @@
+{
+  "name": "walverine",
+  "version": "0.0.1",
+  "description": "Extract case law citations from plain text",
+  "main": "walverine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adelevie/walverine.git"
+  },
+  "keywords": [
+    "legal-citations"
+  ],
+  "author": "Mike Lissner/Frank Bennett/Alan deLevie",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/adelevie/walverine/issues"
+  }
+}
