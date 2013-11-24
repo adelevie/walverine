@@ -1195,4 +1195,5 @@ Walverine.get_citations = function (text, html, do_post_citation, do_defendant) 
     return citations;
 }
 
-module.exports.walverine = Walverine;
+module.exports = Walverine;
+
