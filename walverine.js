@@ -24,6 +24,7 @@ Citation = function(volume, reporter, page) {
     this.cert_order = null;
     this.disposition = null;
     this.cite_type;
+    this.match;
 }
 
 Citation.prototype.base_citation = function () {
@@ -870,6 +871,7 @@ Walverine.addDefendant = function (citations, words, pos, idx, end, prev_idx) {
                     citation.plaintiff = citation.plaintiff.replace(/^In\s+/, "");
                 }
             }
+            citation.match = words.slice(this.idx,this.end_idx).join(" ");
         }
     }
 }
