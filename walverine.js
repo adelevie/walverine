@@ -870,6 +870,7 @@ Walverine.addDefendant = function (citations, words, pos, idx, end, prev_idx) {
                     citation.plaintiff = citation.plaintiff.replace(/^In\s+/, "");
                 }
             }
+            citation.match = words.slice(this.idx,this.end_idx).join(" ");
         }
     }
 }
