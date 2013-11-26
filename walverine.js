@@ -24,6 +24,7 @@ Citation = function(volume, reporter, page) {
     this.cert_order = null;
     this.disposition = null;
     this.cite_type;
+    this.match;
 }
 
 Citation.prototype.base_citation = function () {
