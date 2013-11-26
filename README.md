@@ -28,6 +28,7 @@ console.log(cites);
     end_idx: 11,
     cert_order: null,
     disposition: null,
+    match: 'Smith v. Hardibble, 111 Cal.2d 222, 555, 558, 333 Cal.3d 444 (1988)',
     seqID: 0,
     relations: [ 0, 1 ] },
   { volume: 333,
@@ -46,8 +47,10 @@ console.log(cites);
     cert_order: null,
     disposition: null,
     CARRY_FORWARD: true,
+    match: '558, 333 Cal.3d 444 (1988)',
     seqID: 1,
     relations: [ 0, 1 ] } ]
+
 */
 ```
 
