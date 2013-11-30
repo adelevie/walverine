@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-Citation = function(volume, reporter, page) {
+WalverineCitation = function(volume, reporter, page) {
     /*
      * Convenience class which represents a single citation found in a document.
      */
@@ -27,20 +27,20 @@ Citation = function(volume, reporter, page) {
     this.match;
 }
 
-Citation.prototype.base_citation = function () {
+WalverineCitation.prototype.base_citation = function () {
     // The Commonwealth jurisdictions have cites like "Smith v. Jones [2007] HL 123".
     var volume = this.volume ? this.volume + " " : ""
     return volume + this.reporter + " " + this.page;
 }
 
-Citation.prototype.as_regex = function () {
+WalverineCitation.prototype.as_regex = function () {
     // Should include the year, if no volume and year is a prefix
     // Form would be something like: "[\[\(]<year>[\]\)]\s+<reporter>\s+<page>"
     var volume = this.volume ? this.volume + "(\s+)" : ""
     var ret = new RegExp(volume + this.reporter + "(\s+)" + this.page);
 }
 
-Citation.prototype.as_html = function () {
+WalverineCitation.prototype.as_html = function () {
     // As above, should include year if it serves as a volume number for this jurisdiction
     var volume = this.volume ? '<span class="volume">' + this.volume + '</span>' : ""
     var inner_html = volume
@@ -629,7 +629,7 @@ Walverine.extract_base_citation = function (words, reporter_index) {
      *  """Construct and return a citation object from a list of "words"
      *
      *  Given a list of words and the index of a federal reporter, look before and after
-     *  for volume and page number.  If found, construct and return a Citation object.
+     *  for volume and page number.  If found, construct and return a WalverineCitation object.
      */
     var NEUTRALS = this.constants.NEUTRALS;
 
@@ -650,7 +650,7 @@ Walverine.extract_base_citation = function (words, reporter_index) {
         // No page, therefore no valid citation
         return null;
     }
-    var citation = new Citation(volume, reporter, page);
+    var citation = new WalverineCitation(volume, reporter, page);
     if (NEUTRALS[reporter]) {
         citation.cite_type = "neutral";
         if (volume && (""+volume).match(/[0-9]{4}/)) {
