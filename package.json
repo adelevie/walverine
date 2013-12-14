@@ -3,8 +3,8 @@
   "version": "0.0.5",
   "description": "Extract case law citations from plain text",
   "main": "walverine.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": { 
+    "test": "nodeunit test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,10 @@
   },
   "dependencies": {
     "underscore": "*"
-  }
+  },
+   "devDependencies": {
+    "nodeunit": "*",
+    "underscore": "*",
+    "deep-equal": "*"
+ }
 }
