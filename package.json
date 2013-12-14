@@ -1,6 +1,6 @@
 {
   "name": "walverine",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Extract case law citations from plain text",
   "main": "walverine.js",
   "scripts": { 
