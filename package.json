@@ -3,7 +3,7 @@
   "version": "0.0.6",
   "description": "Extract case law citations from plain text",
   "main": "walverine.js",
-  "scripts": { 
+  "scripts": {
     "test": "nodeunit test"
   },
   "repository": {
@@ -19,11 +19,9 @@
     "url": "https://github.com/adelevie/walverine/issues"
   },
   "dependencies": {
-    "underscore": "*"
   },
    "devDependencies": {
     "nodeunit": "*",
-    "underscore": "*",
     "deep-equal": "*"
  }
 }

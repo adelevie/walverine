@@ -1,10 +1,8 @@
-var _ = require('underscore');
-
 WalverineCitation = function(volume, reporter, page) {
     /*
      * Convenience class which represents a single citation found in a document.
      */
-    
+
     // Note: It will be tempting to resolve reporter variations in the __init__ function, but, alas, you cannot,
     //       because often reporter variations refer to one of several reporters (e.g. P.R. could be a variant of
     //       either ['Pen. & W.', 'P.R.R.', 'P.']).
@@ -26,6 +24,40 @@ WalverineCitation = function(volume, reporter, page) {
     this.cite_type;
     this.match;
 }
+
+WalverineCitation.keys = function(obj) {
+    if (Object.keys) return Object.keys(obj);
+    var keys = [];
+    for (var key in obj) if (obj.hasOwnProperty(key)) keys.push(key);
+    return keys;
+};
+
+WalverineCitation.each = function(obj, iterator, context) {
+    if (obj == null) return obj;
+    if (Array.prototype.forEach && obj.forEach === Array.prototype.forEach) {
+      obj.forEach(iterator, context);
+    } else if (obj.length === +obj.length) {
+      for (var i = 0, length = obj.length; i < length; i++) {
+        if (iterator.call(context, obj[i], i, obj) === breaker) return;
+      }
+    } else {
+      var keys = WalverineCitation.keys(obj);
+      for (var i = 0, length = keys.length; i < length; i++) {
+        if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker) return;
+      }
+    }
+    return obj;
+};
+
+WalverineCitation.map = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    if (Array.prototype.map && obj.map === Array.prototype.map) return obj.map(iterator, context);
+    WalverineCitation.each(obj, function(value, index, list) {
+      results.push(iterator.call(context, value, index, list));
+    });
+    return results;
+};
 
 WalverineCitation.prototype.base_citation = function () {
     // The Commonwealth jurisdictions have cites like "Smith v. Jones [2007] HL 123".
@@ -201,7 +233,7 @@ Walverine.builders.make_variants = function (REPORTERS) {
             var newvars = {};
             for (var key in class_entry.editions) {
                 var nvk = this.make_variant_key(key);
-                if (!class_entry.editions[nvk] 
+                if (!class_entry.editions[nvk]
                     && !class_entry.variations[nvk]
                     && !newvars[nvk]) {
 
@@ -210,7 +242,7 @@ Walverine.builders.make_variants = function (REPORTERS) {
             }
             for (var key in class_entry.variations) {
                 var nvk = this.make_variant_key(key);
-                if (!class_entry.editions[nvk] 
+                if (!class_entry.editions[nvk]
                     && !class_entry.variations[nvk]
                     && !newvars[nvk]) {
 
@@ -223,7 +255,7 @@ Walverine.builders.make_variants = function (REPORTERS) {
         }
     }
 };
-    
+
 Walverine.builders.make_variants(Walverine.constants.REPORTERS);
 Walverine.builders.suck_out_variations_only = function (REPORTERS) {
     /*
@@ -355,7 +387,7 @@ Walverine.builders.make_regex = function (constants) {
 
     //var REGEX_LIST = [key for (key in EDITIONS)].concat([key for (key in VARIATIONS_ONLY)]);
 
-    var REGEX_LIST = _.keys(EDITIONS).concat(_.keys(VARIATIONS_ONLY));
+    var REGEX_LIST = WalverineCitation.keys(EDITIONS).concat(WalverineCitation.keys(VARIATIONS_ONLY));
 
     /*
     REGEX_LIST = REGEX_LIST
@@ -374,7 +406,7 @@ Walverine.builders.make_regex = function (constants) {
             REGEX_LIST[i] = " "  + REGEX_LIST[i] + " ";
         }
     }
-    
+
     REGEX_LIST.sort(
         function (a,b) {
             if (a.length < b.length) {
@@ -396,7 +428,7 @@ Walverine.builders.make_regex = function (constants) {
                      .replace("\'", "\\'","g") for (i in REGEX_LIST)].join("|");
 
     */
-    var REGEX_STR = _.map(REGEX_LIST, function(i) {
+    var REGEX_STR = WalverineCitation.map(REGEX_LIST, function(i) {
       return i.replace(".","\\.","g").replace("(","\\(","g").replace(")","\\)","g").replace("\'", "\\'","g");
     }).join("|");
 
@@ -417,25 +449,25 @@ Walverine.utils.strip_punct = function (text) {
     text = text.replace(/[,;:@#$%&]/g, '')
     text = text.replace(/([^\.])(\.)([\]\)}>"\']*)\s*$/g, '$1')
     text = text.replace(/[?!]/g, '')
-    
+
     // XXX What did I add this for? As written, it's only effect will be to break things.
     text = text.replace(/([^'])' /g, "")
 
     //parens, brackets, etc.
     text = text.replace(/[\]\[\(\)\{\}\<\>]/g, '')
     text = text.replace(/--/g, '')
-    
+
     //ending quotes
     text = text.replace(/\"/g, "")
     text = text.replace(/(\S)(\'\')/g, '')
-    
+
     return text.replace(/^\s+/, "").replace(/\s+$/, "");
 };
 
-    
+
 Walverine.utils.get_visible_text = function (text) {
     var text = text.replace(/<(?:style|STYLE)[^>]*>.*?<\/(?:style|STYLE)>/g, " ");
-    text = text.replace(/<[Aa] [^>]+>[^ ]+<\/[Aa]>/g, " "); 
+    text = text.replace(/<[Aa] [^>]+>[^ ]+<\/[Aa]>/g, " ");
     text = text.replace(/<[^>]*>/g, "");
     text = text.replace("\n"," ","g");
     text = text.replace(" "," ","g");
@@ -506,7 +538,7 @@ Walverine.get_year = function (token) {
 
 Walverine.get_pre_citation = function (citation, citations, words, reporter_index) {
     // There are Federal Circuit decisions that have a form
-    // like this: 
+    // like this:
     //
     //     "Smith v. Jones, 2nd Cir., 1955, 123 F.2d 456".
     //
@@ -709,7 +741,7 @@ Walverine.add_defendant = function (citations, words, reporter_index) {
      *  If no known stop-token is found, no defendant name is stored.  In the future,
      *  this could be improved.
      */
-    
+
     var pos = citations.length - 1;
     var end = (reporter_index - 1);
     var idx = (reporter_index - 2);
@@ -809,7 +841,7 @@ Walverine.addDefendant = function (citations, words, pos, idx, end, prev_idx) {
             }
             return this.buffer;
         },
-        
+
         is_parallel: function() {
             // "of" is handled by a special condition
             var idx = this.idx;
@@ -841,7 +873,7 @@ Walverine.addDefendant = function (citations, words, pos, idx, end, prev_idx) {
                 }
             }
         },
-        
+
         cleanstr: function (str) {
             str = str.replace("&amp;", "&", "g");
             str = str.replace(/,$/,"");
@@ -850,7 +882,7 @@ Walverine.addDefendant = function (citations, words, pos, idx, end, prev_idx) {
         },
 
         finish: function (citation) {
-            
+
             if (this.idx < this.end) {
                 // It doesn't necessarily exist
                 var parties = words.slice(this.idx,(this.end)).join(" ");
@@ -1097,7 +1129,7 @@ Walverine.get_citations = function (text, html, do_post_citation, do_defendant) 
     for (var i=1,ilen=words.length-1;i<ilen;i+=1) {
         // Find reporter
         //if ([key for (key in EDITIONS)].concat([key for (key in VARIATIONS_ONLY)]).indexOf(words[i]) > -1) {
-        if (_.keys(EDITIONS).concat(_.keys(VARIATIONS_ONLY)).indexOf(words[i]) > -1) {
+        if (WalverineCitation.keys(EDITIONS).concat(WalverineCitation.keys(VARIATIONS_ONLY)).indexOf(words[i]) > -1) {
             citation = this.extract_base_citation(words, i);
             if (!citation) {
                 // Not a valid citation; continue looking
@@ -1105,7 +1137,7 @@ Walverine.get_citations = function (text, html, do_post_citation, do_defendant) 
             }
             var preoffset = 0;
             if (do_post_citation) {
-                //citation.rptr_idx = 
+                //citation.rptr_idx =
                 var preoffset = this.get_pre_citation(citation, citations, words, i);
                 if (!preoffset && citation.volume) {
                     this.add_post_citation(citation, words, i);
@@ -1177,7 +1209,7 @@ Walverine.get_citations = function (text, html, do_post_citation, do_defendant) 
     for (var j in relations) {
         citations[relations[j]].relations = relations.slice();
     }
-    
+
     // Populate CERT_DENIED and CERT_GRANTED disposition forward and back
     for (var i=1,ilen=citations.length;i<ilen;i+=1) {
         var citation = citations[i];
